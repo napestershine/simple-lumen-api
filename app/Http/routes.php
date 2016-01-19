@@ -11,7 +11,12 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
-});
+$app->group(['prefix' => 'api/v1', 'namespace' => '\App\Http\Controllers\Api\v1'], function () use ($app) {
+    
+    $app->get('/products', ['uses' => 'ProductsController@index']);
+    $app->get('/products/{id}', ['uses' => 'ProductsController@show']);
+    $app->post('/products', ['uses' => 'ProductsController@store']);
+    $app->put('/products/{id}', ['uses' => 'ProductsController@update']);
+    $app->delete('/products/{id}', ['uses' => 'ProductsController@destroy']);
 
+});
