@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ProductsController extends \App\Http\Controllers\Controller
 {
+    /**
+     * List all the products.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         try {
@@ -20,7 +25,13 @@ class ProductsController extends \App\Http\Controllers\Controller
 
         return response()->json($response, $statusCode);
     }
-
+    /**
+     * Return details about specific product.
+     *
+     * @param int $id
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         try {
@@ -36,7 +47,13 @@ class ProductsController extends \App\Http\Controllers\Controller
 
         return response()->json($response, $statusCode);
     }
-
+    /**
+     * Store a new product in the database.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         try {
@@ -49,7 +66,14 @@ class ProductsController extends \App\Http\Controllers\Controller
 
         return response()->json($response, $statusCode);
     }
-
+    /**
+     * Update the specified product.
+     *
+     * @param Request $request
+     * @param int     $id
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         try {
@@ -71,6 +95,13 @@ class ProductsController extends \App\Http\Controllers\Controller
         return response()->json($response, $statusCode);
     }
 
+    /**
+     * Remove the specified product from the database.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         try {
